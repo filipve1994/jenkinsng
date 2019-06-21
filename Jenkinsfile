@@ -15,7 +15,7 @@ pipeline {
           env.PATH="${env.NODEJS_HOME}:${env.PATH}"
           echo ${env.PATH}
           sh 'node -version'
-
+        }
       }
     }
     stage('Build') {
