@@ -6,7 +6,7 @@ pipeline {
 
   }
   stages {
-    stage('') {
+    stage('Source') {
       steps {
         git(url: 'https://github.com/filipve1994/jenkinsng', branch: 'pipe1')
         sh 'env'
