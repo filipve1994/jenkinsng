@@ -14,7 +14,8 @@ pipeline {
           //env.NODEJS_HOME = "${tool nodejs}"
           env.PATH="${env.NODEJS_HOME}:${env.PATH}"
           sh "echo ${env.PATH}"
-          sh 'node -version'
+          sh 'node -v'
+          sh 'npm -v'
         }
       }
     }
