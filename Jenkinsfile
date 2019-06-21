@@ -10,10 +10,13 @@ pipeline {
           echo commitid
           sh "echo ${commitid} > ${env.WORKSPACE}/expectedCommitid.txt"
         }
+
         script {
-          
           sh "echo ${env.PATH}"
-          sh "npm -v"
+          nodejs('node') {
+            sh "npm -v"
+          }
+
         }
 
       }
