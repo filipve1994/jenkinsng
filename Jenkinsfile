@@ -5,6 +5,9 @@ pipeline {
     }
 
   }
+  
+  tools {nodejs "NodeJS"}
+  
   stages {
     stage('Source') {
       steps {
@@ -21,6 +24,7 @@ pipeline {
     }
     stage('Build') {
       steps {
+        sh 'npm config ls'
         sh 'npm install'
         sh 'ng build'
       }
