@@ -10,23 +10,13 @@ pipeline {
           echo commitid
           sh "echo ${commitid} > ${env.WORKSPACE}/expectedCommitid.txt"
         }
+
         script {
-          //env.NODEJS_HOME = "${tool nodejs}"
           env.PATH="${env.NODEJS_HOME}:${env.PATH}"
-          sh "echo ${env.PATH}"
-          sh 'node -v'
-          sh 'npm -v'
+          echo ${env.PATH}
+          npm -v
         }
-      }
-    }
-    stage('Build') {
-      steps {
-        nodejs(nodeJSInstallationName: 'NodeJS') {
-                    sh 'npm config ls'
-                    sh 'npm -v'
-                    sh 'npm install'
-                    sh 'ng build'
-                }
+
       }
     }
     stage('copy to tmp folder') {
