@@ -5,9 +5,6 @@ pipeline {
     }
 
   }
-  
-  tools {nodejs "NodeJS"}
-  
   stages {
     stage('Source') {
       steps {
@@ -24,7 +21,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'npm config ls'
+        sh 'npm -v'
         sh 'npm install'
         sh 'ng build'
       }
@@ -34,5 +31,8 @@ pipeline {
         sh 'cp -R /dist/* /tmp/angularprojects/'
       }
     }
+  }
+  tools {
+    nodejs 'NodeJS'
   }
 }
