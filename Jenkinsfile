@@ -15,9 +15,12 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'npm -v'
-        sh 'npm install'
-        sh 'ng build'
+        nodejs(nodeJSInstallationName: 'NodeJS') {
+                    sh 'npm config ls'
+                    sh 'npm -v'
+                    sh 'npm install'
+                    sh 'ng build'
+                }
       }
     }
     stage('copy to tmp folder') {
