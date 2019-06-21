@@ -5,10 +5,7 @@ pipeline {
     }
 
   }
-  
-  tools {
-    nodejs "NodeJS"
-  }
+
   
   stages {
     stage('Source') {
