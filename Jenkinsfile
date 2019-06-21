@@ -11,6 +11,9 @@ pipeline {
           sh "echo ${commitid} > ${env.WORKSPACE}/expectedCommitid.txt"
         }
 
+        sh '''env.PATH="${env.NODEJS_HOME}:${env.PATH}"
+          echo ${env.PATH}
+          npm -v'''
         script {
           env.PATH="${env.NODEJS_HOME}:${env.PATH}"
           echo ${env.PATH}
